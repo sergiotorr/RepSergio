@@ -9,10 +9,15 @@ Evidencia:
 Codigo:
 
 
+import logging
+import re
+
+from telegram import ForceReply, Update
+from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
-
 
 expresion_regular = re.compile(r"([A-Z]{4}\d{6}[H|M][A-Z]{5}(\d{2}|[A-Z]{1}\d{1}))", re.IGNORECASE)
 
